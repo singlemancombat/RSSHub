@@ -25,6 +25,12 @@ pageClass: routes
 
 </Route>
 
+## BOOKSOURCE.STORE
+
+### 书源仓库更新
+
+<Route author="vhxubo" example="/booksource" path="/booksource"/>
+
 ## checkee.info
 
 ### 美国签证 check 动态
@@ -230,6 +236,30 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 <Route author="LogicJake" example="/gushiwen/recommend" path="/gushiwen/recommend"/>
 
+## 国家留学网
+
+### 通知
+
+<Route author="Derekmini" example="/csc/notice/lxtz" path="/csc/notice/:type?" :paramsDesc="['分类, 默认为 `lxtz`']" radar="1">
+
+| 遴选通知 | 综合项目专栏 | 常见问题解答 | 录取公告 |
+| -------- | ------------ | ------------ | -------- |
+| lxtz     | xmzl         | wtjd         | lqgg     |
+
+</Route>
+
+## 国家自然科学基金委员会
+
+### 新闻通知
+
+<Route author="Derekmini" example="/nsfc/news/jjyw" path="/nsfc/news/:type?" :paramsDesc="['分类, 默认为 `jjyw`']" radar="1">
+
+| 基金要闻 | 通知公告 | 资助成果 | 科普快讯 |
+| -------- | -------- | -------- | -------- |
+| jjyw     | tzgg     | zzcg     | kpkx     |
+
+</Route>
+
 ## 好队友
 
 ### 工作机会
@@ -242,11 +272,44 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 <Route author="LogicJake" example="/fitchratings/site/economics" path="/fitchratings/site/:type" :paramsDesc="['板块名称，在网址 site 后面']"/>
 
+## 静态模型爱好者
+
+### 新品信息
+
+<Route author="cc798461" example="/moxingfans" path="/moxingfans"/>
+
 ## 空气质量
 
 ### 实时 AQI
 
 <Route author="xapool" example="/aqicn/beijing" path="/aqicn/:city" :paramsDesc="['城市拼音或地区 ID，详见[aqicn.org](http://aqicn.org/city/)']"/>
+
+## 酷安
+
+### 图文-编辑精选
+
+<Route author="xizeyoupan" example="/coolapk/tuwen" path="/coolapk/tuwen" />
+
+## 快递 100
+
+### 快递订单追踪
+
+<Route author="NeverBehave" example="/kuaidi100/track/shunfeng/SF1007896781640/0383" path="/kuaidi100/track/:number/:id/:phone?" :paramsDesc="['快递公司代号', '订单号', '手机号后四位（仅顺丰）']" radar="1">
+
+快递公司代号如果不能确定，可通过下方快递列表获得。
+
+::: warning 注意
+
+1. 构造链接前请确认所有参数正确：错误`快递公司-订单号`组合将会缓存信息一小段时间防止产生无用查询
+2. 正常查询的订单在未签收状态下不会被缓存：请控制查询频率
+3. 订单完成后请尽快取消订阅，避免资源浪费
+
+:::
+</Route>
+
+### 支持的快递公司列表
+
+<Route author="NeverBehave" example="/kuaidi100/company" path="/kuaidi100/company" radar="1"/>
 
 ## 裏垢女子まとめ
 
@@ -290,6 +353,12 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 </Route>
 
+## 模型网
+
+### 新闻
+
+<Route author="cc798461" example="/moxingnet" path="/moxingnet"/>
+
 ## 且听风吟福利
 
 ### 分类
@@ -326,7 +395,13 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 ### 郵便追跡サービス
 
-<Route author="tuzi3040" example="/japanpost/EJ123456789JP" path="/japanpost/:reqCode" :paramsDesc="['运单号']"/>
+<Route author="tuzi3040" example="/japanpost/EJ123456789JP/ja" path="/japanpost/:reqCode/:locale?" :paramsDesc="['运单号', '语言，默认为`ja`']" radar="1">
+
+| 日语 | 英语 |
+| ---- | ---- |
+| ja   | en   |
+
+</Route>
 
 ## 上证债券信息网
 
@@ -352,21 +427,23 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 <Route author="Jeason0228" example="/szse/inquire/navall" path="/szse/inquire/:type"  :paramsDesc="['tab选项,navall为全部,nav1为主板,nav2,为中小企业板,nav3位创业板']"/>
 
+## 四川省科学技术厅
+
+### 四川省科学技术厅-公示公告
+
+<Route author="Cubernet" example="/sckjt/news" path="/sckjt/news/:type?" :paramsDesc="['默认为`tz`']">
+
+| 通知 | 公示公告 |
+| ---- | -------- |
+| tz   | gs       |
+
+</Route>
+
 ## 搜狗
 
 ### 搜狗特色 LOGO
 
 <Route author="xyqfer" example="/sogou/doodles" path="/sogou/doodles"/>
-
-## 淘股吧股票论坛
-
-### 论坛总版
-
-<Route author="emdoe" example="/taoguba/index" path="/taoguba/index"/>
-
-### 用户博客
-
-<Route author="emdoe" example="/taoguba/user/252069" path="/taoguba/user/:uid" :paramsDesc="['用户 id']" />
 
 ## 腾讯吐个槽
 
@@ -404,13 +481,13 @@ type 为 all 时，category 参数不支持 cost 和 free
 
 <Route author="DIYgod" example="/coronavirus/caixin" path="/coronavirus/caixin"/>
 
-### 丁香园 - 全国新型肺炎疫情实时播报
+### 丁香园 - 新冠病毒疫情实时播报
 
 <Route author="DIYgod" example="/coronavirus/dxy" path="/coronavirus/dxy"/>
 
-### 丁香园 - 全国新型肺炎疫情数据统计
+### 丁香园 - 新冠病毒疫情数据统计
 
-<Route author="DIYgod HenryQW" example="/coronavirus/dxy/data/湖北/武汉" path="/coronavirus/dxy/data/:province?/:city?" :paramsDesc="['省/直辖市名，缺省或错误则返回全国数据','城市名，缺省或错误则返回全省数据。直辖市请使用区/县名。']"/>
+<Route author="DIYgod HenryQW" example="/coronavirus/dxy/data/湖北/武汉" path="/coronavirus/dxy/data/:province?/:city?" :paramsDesc="['省/直辖市名，缺省或错误则返回国内数据','城市名，缺省或错误则返回全省数据。直辖市请使用区/县名。']"/>
 
 ### 腾讯新闻 - 新型冠状病毒肺炎实时辟谣
 
@@ -471,6 +548,17 @@ type 为 all 时，category 参数不支持 cost 和 free
 > 仅支持 IMAP 协议，邮件密码等设置见 [邮件设置](/install/#其他应用配置)
 
 <Route author="kt286" example="/mail/imap/rss@rsshub.app" path="/mail/imap/:email" :paramsDesc="['邮箱账号']" />
+
+## 源仓库
+
+### 源仓库更新
+
+<Route author="vhxubo" example="/ku" path="/ku/:name?" :paramsDesc="['默认为 `yuedu`']">
+| 阅读 | 异次元 | 海阔 | 
+| ---- | ----- | ---- | 
+| yuedu | yiciyuan | haikuo |
+
+</Route>
 
 ## 远程.work
 

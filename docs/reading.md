@@ -42,7 +42,7 @@ pageClass: routes
 
 ### 小说更新
 
-<Route author="jjeejj" example="/novel/biquge/52_52542" path="/novel/biquge/:id" :paramsDesc="['小说 id, 可在对应小说页 URL 中找到']" anticrawler="1">
+<Route author="jjeejj" example="/novel/biquge/52_52542" path="/novel/biquge/:id" :paramsDesc="['小说 id, 可在对应小说页 URL 中找到']" anticrawler="1" radar="1">
 
 ::: tip 提示
 
@@ -64,6 +64,10 @@ pageClass: routes
 :::
 </Route>
 
+### 专栏列表
+
+<Route author="LogicJake" example="/chuiniu/column_list" path="/chuiniu/column_list"/>
+
 ## 刺猬猫
 
 ### 章节
@@ -79,6 +83,19 @@ pageClass: routes
 | 首页 | 文字 | 影像 | 声音 | 单向历 | 谈论 |
 | ---- | ---- | ---- | ---- | ------ | ---- |
 | 0    | 1    | 2    | 3    | 4      | 6    |
+
+</Route>
+
+## 稻草人书屋
+
+### 章节更新
+
+<Route author="JeasonLau" example="/dcrsw/zhongjidouluo/2" path="/dcrsw/:name/:count?" :paramsDesc="['小说名，可在对应小说页URL中找到', '显示的章节数，缺省为`3`']">
+
+::: warning 注意
+
+count 的取值范围为 1-12，为防止请求次数过多，推荐设置为 5 以下。
+:::
 
 </Route>
 
